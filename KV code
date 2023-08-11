@@ -1,0 +1,599 @@
+Console:
+
+<BackgroundColorLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.3, 0.5, 0.8, .2  # Set the RGBA values of the desired color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<console>:
+    orientation:"vertical"
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            source:'Background image.jfif'
+            size: root.width, root.height
+            pos: self.pos
+
+    BoxLayout:
+        orientation:"vertical"
+            
+        BoxLayout:
+            size_hint:1,.2
+            Label:
+                text:"WORD HUNT"
+                font_name:"lcd"
+                color:1,0,0,1
+                font_size:"400sp"
+                opacity:1
+        BoxLayout:
+            size_hint:1,.2
+            RelativeLayout:
+                Label:
+                    id:chance_display
+                    font_name: 'lcd'
+                    color: 1, 1, 0, 1
+                    size_hint: None, None
+                    size: self.texture_size
+                    font_size: '100sp'
+                    opacity: 1
+                    pos_hint: {'right': .9, 'center_y': 0.5}
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"Guess the word"
+                font_name:"lcd"
+                color:1,0,0,1
+                font_size:"100sp"
+                opacity:1
+            Label:
+                text:""
+                id:display_label
+                font_name:"lcd"
+                color:1,0,0,1
+                font_size:"100sp"
+                opacity:1
+            Label:
+                text:""
+                id:hint_label
+                font_name:"lcd"
+                color:1,0,0,1
+                font_size:"100sp"
+                opacity:1
+        GridLayout:
+            size_hint:1,.45
+            cols:11
+            rows:4
+            Button_animate:
+                text:"Q"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('q')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+                #padding_right:
+            Button_animate:
+                text:"W"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('w')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"E"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('e')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"R"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('r')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"T"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('t')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,0,0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"Y"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('y')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,0,0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            
+            Button_animate:
+                text:"U"
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('u')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+        
+            Button_animate:
+                text:"I"
+                id:i
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('i')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"O"
+                id:o
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('o')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"P"
+                id:p
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('p')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"A"
+                id:a
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('a')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+                #padding_right:
+            Button_animate:
+                text:"S"
+                id:s
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('s')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"D"
+                id:d
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('d')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"F"
+                id:f
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('f')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,0,0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"G"
+                id:g
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('g')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,0,0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"H"
+                id:h
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('h')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,0, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"J"
+                id:j
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('j')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.6, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"K"
+                id:k
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('k')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,0, 0,.8  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"L"
+                id:l
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('l')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4  # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"Z"
+                id:z
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('z')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"X"
+                id:x
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('x')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"C"
+                id:c
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('c')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"V"
+                id:v
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('v')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"B"
+                id:b
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('b')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"N"
+                id:n
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('n')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button_animate:
+                text:"M"
+                id:m
+                font_name:"3D"
+                on_press:self.on_press()
+                on_release:self.on_release(),root.game('m')
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+        BoxLayout:
+            size_hint:1,.1
+            Button_animate:
+                text:'START'
+                id:startB
+                font_name:"3D"
+                on_press:root.start()
+                #on_release:self.on_release()
+                #on_complete:self.reset_button()
+                background_color:(0,0,0,.4)
+                border:(6,6,6,6)
+                border_color:(1,0,0,1)
+                font_size:'30sp'
+                color:1,.6, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+            Button:
+                text:'HINT'
+                font_name:"3D"
+                on_press:self.on_press(),root.hint()
+                on_release:self.on_release()
+                #on_complete:self.reset_button()
+                background_color:(0,1,0,.4)
+                border:(6,6,6,6)
+                border_color:(0,1,0,1)
+                font_size:'30sp'
+                color:1,1, 0,.8
+                canvas.before:
+                    Color:
+                        rgba:1,.84,0,.4 # Yellow border color
+                        #gradient
+                    Line:
+                        width: .5  # Border width
+                        rectangle: self.x, self.y, self.width, self.height
+
+           
+            
